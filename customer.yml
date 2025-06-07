@@ -8,6 +8,10 @@ spring:
       database: customer
       authentication-database-name: admin
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
+logging:
+  level:
+    org.springdoc: DEBUG
+    org.springframework.web: DEBUG
 
 # Correct springdoc properties (note the top-level placement)
 springdoc:
