@@ -8,8 +8,11 @@ spring:
       database: customer # The database your app will primarily use
       authentication-database-name: admin # The database where the 'root' user is defined
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
- api-docs:
+springdoc:
+  api-docs:
     enabled: true
+    path: /v3/api-docs
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
+    url: /v3/api-docs
