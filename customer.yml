@@ -5,9 +5,11 @@ spring:
       password: admin
       host: localhost
       port: 27018
-      database: customer # The database your app will primarily use
-      authentication-database-name: admin # The database where the 'root' user is defined
+      database: customer
+      authentication-database-name: admin
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
+
+# Correct springdoc properties (note the top-level placement)
 springdoc:
   api-docs:
     enabled: true
