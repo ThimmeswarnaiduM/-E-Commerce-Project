@@ -8,9 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ThimmeswarnaiduM/your-repo-name
-          label: main
+          uri: https://github.com/ThimmeswarnaiduM/-E-Commerce-Project
+          label: master
+          timeout: 5000
           clone-on-start: true
           force-pull: true
-          timeout: 5000
-         
+
