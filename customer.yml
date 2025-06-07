@@ -13,11 +13,4 @@ spring:
     org.springdoc: DEBUG
     org.springframework.web: DEBUG
 
-# Correct springdoc properties (note the top-level placement)
-springdoc:
-  api-docs:
-    enabled: true
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
 
