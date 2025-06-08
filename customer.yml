@@ -2,14 +2,10 @@ spring:
   data:
     mongodb:      
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
- eureka:
-  instance:
-    preferIpAddress: true
+eureka:
   client:
-    fetchRegistry: true
-    registerWithEureka: true
     serviceUrl:
-      defaultZone: http://localhost:8070/eureka
+      defaultZone: http://eureka-server:8761/eureka
  logging:
   level:
     org.springdoc: DEBUG
