@@ -1,20 +1,60 @@
 spring:
+ 
+  profiles:
+    active: docker
   data:
     mongodb:
-      uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
-      # Alternative (if using MongoDB 4.0+ with SCRAM-SHA-256):
-      # uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-256
+      uri: mongodb://admin:admin@mongo_db:27017/customer?authSource=admin&authMechanism=SCRAM-SHA-1
+  
+    inetutils:
+      preferred-networks:
+        - 172. # Docker network range
+
+server:
+  port: 8090
 
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka/
+    healthcheck:
+      enabled: true
   instance:
+    hostname: ms_customer
     preferIpAddress: false
+    appname: customer-service
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    mongo:
+      enabled: true
+    diskspace:
+      enabled: true
 
 logging:
   level:
-    org:
-      springframework:
-        web: DEBUG
-      springdoc: DEBUG
+    org.springframework.cloud: DEBUG
+    com.netflix.eureka: DEBUG
+    com.netflix.discovery: DEBUG
+    root: INFO
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+
+
