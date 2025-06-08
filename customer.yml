@@ -1,11 +1,9 @@
 spring:
- 
-  profiles:
-    active: docker
+  profiles: docker  # Corrected profile declaration
   data:
     mongodb:
       uri: mongodb://admin:admin@mongo_db:27017/customer?authSource=admin&authMechanism=SCRAM-SHA-1
-  
+  cloud:
     inetutils:
       preferred-networks:
         - 172. # Docker network range
@@ -22,7 +20,7 @@ eureka:
     healthcheck:
       enabled: true
   instance:
-    hostname: ms_customer
+    hostname: customer-service  # Changed from ms_customer
     preferIpAddress: false
     appname: customer-service
     leaseRenewalIntervalInSeconds: 10
@@ -55,6 +53,3 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
-
-
-
