@@ -1,12 +1,6 @@
 spring:
   data:
-    mongodb:
-      username: admin
-      password: admin
-      host: localhost
-      port: 27018
-      database: customer
-      authentication-database-name: admin
+    mongodb:      
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
  eureka:
   instance:
