@@ -1,14 +1,22 @@
 spring:
   data:
-    mongodb:      
+    mongodb:
       uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-1
+      # Alternative (if using MongoDB 4.0+ with SCRAM-SHA-256):
+      # uri: mongodb://admin:admin@localhost:27018/customer?authSource=admin&authMechanism=SCRAM-SHA-256
+
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
- logging:
+    service-url:
+      #defaultZone: http://localhost:8761/eureka/
+      # If running in Docker with service discovery, use:
+       defaultZone: http://eureka-server:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+logging:
   level:
-    org.springdoc: DEBUG
-    org.springframework.web: DEBUG
-
-
+    org:
+      springframework:
+        web: DEBUG
+      springdoc: DEBUG
