@@ -26,7 +26,7 @@ eureka:
   instance:
     hostname: product-service  # Changed from ms_customer
     preferIpAddress: false
-    appname: customer-service
+    appname: product-service
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
 
