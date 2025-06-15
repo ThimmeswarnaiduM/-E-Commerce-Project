@@ -24,9 +24,9 @@ eureka:
     healthcheck:
       enabled: true
   instance:
-    hostname: product-service
+    hostname: product-service  # Changed from ms_customer
     preferIpAddress: false
-    appname: product-service
+    appname: customer-service
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
 
