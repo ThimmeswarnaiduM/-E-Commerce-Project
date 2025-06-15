@@ -24,9 +24,9 @@ spring:
     healthcheck:
       enabled: true
   instance:
-    hostname: customer-service  # Changed from ms_customer
+    hostname: product-service  # Changed from ms_customer
     preferIpAddress: false
-    appname: customer-service
+    appname: product-serivce
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30  
 
