@@ -29,4 +29,31 @@ spring:
     appname: product-serivce
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30  
+  management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    mongo:
+      enabled: true
+    diskspace:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud: DEBUG
+    com.netflix.eureka: DEBUG
+    com.netflix.discovery: DEBUG
+    root: INFO
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html  
 
