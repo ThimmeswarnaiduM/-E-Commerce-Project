@@ -15,4 +15,18 @@ spring:
     enabled: true
     baseline-description: Initial migration
     baseline-version: 1.0
+  eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: customer-service  # Changed from ms_customer
+    preferIpAddress: false
+    appname: customer-service
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30  
 
