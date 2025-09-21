@@ -1,19 +1,22 @@
-server:
-  port: 8761   # Eureka server will run on port 8761
-
 spring:
-  application:
-    name: eureka-server
+  
+server:
+  port: 8761
 
 eureka:
-  client:
-    register-with-eureka: false   # must be kebab-case
-    fetch-registry: false         # must be kebab-case
   instance:
-    hostname: localhost
+    hostname: eureka-server
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+    defaultZone: http://eureka-server:8761/eureka
+
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   # Exposes all actuator endpoints (e.g., /actuator/health, /actuator/info, etc.)
+        include: "*"
+
+
