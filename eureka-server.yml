@@ -1,16 +1,16 @@
-spring:
-
 server:
   port: 8761   # Eureka server will run on port 8761
 
+spring:
+  application:
+    name: eureka-server
+
 eureka:
+  client:
+    register-with-eureka: false   # must be kebab-case
+    fetch-registry: false         # must be kebab-case
   instance:
     hostname: localhost
-  client:
-    registerWithEureka: false   # This service will NOT register itself (because it is the Eureka server itself)
-    fetchRegistry: false        # This service will NOT try to fetch other service instances (again, because it is the server)
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka  # The default registry URL
 
 management:
   endpoints:
