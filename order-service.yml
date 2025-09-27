@@ -20,7 +20,7 @@ server:
 application:
   customer-url: http://customer-service:8090/api/v1/customers
   product-url: http://product-service:8091/api/v1/products
-  payment-url: http://localhost:8081/api/v1/payments
+  payment-url: http://payment-service:8081/api/v1/payments
 
 eureka:
   client:
@@ -31,9 +31,9 @@ eureka:
     healthcheck:
       enabled: true
   instance:
-    hostname: product-service
+    hostname: order-service
     preferIpAddress: false
-    appname: product-service
+    appname: order-service
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
 
@@ -52,7 +52,7 @@ management:
       enabled: true
 
 info:
-  app.name: product-service
+  app.name: order-service
   build.version: ${git.commit.id.abbrev}
   contact.email: e-commerce@gmail.com
 
