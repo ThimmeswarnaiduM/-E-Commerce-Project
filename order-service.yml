@@ -5,7 +5,7 @@ spring:
     active: docker
 
   datasource:
-    url: jdbc:mysql://ms_mysql:3306/order_service
+    url: jdbc:mysql://order_mysql:3306/order_service
     username: root
     password: mysql
 
@@ -20,7 +20,7 @@ server:
 application:
   customer-url: http://customer-service:8090/api/v1/customers
   product-url: http://product-service:8091/api/v1/products
-  payment-url: http://payment-service:8081/api/v1/payments
+  payment-url: http://payment-service:8060/api/v1/payments
 
 eureka:
   client:
