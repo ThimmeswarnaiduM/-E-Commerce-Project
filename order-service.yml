@@ -5,7 +5,7 @@ spring:
     active: docker
 
   datasource:
-    url: jdbc:mysql://order-service:3306/order_service
+    url: jdbc:mysql://order_service:3306/order_service
     username: root
     password: mysql
 
