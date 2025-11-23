@@ -1,11 +1,15 @@
 spring:
+  config:
+    import: optional:configserver:http://config_server:8888
+  application:
+    name: payment-service
+
   datasource:
     url: jdbc:mysql://mysql_payment:3306/payment_service?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  
   jpa:
     hibernate:
       ddl-auto: update
@@ -23,7 +27,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka_server:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
   instance:
     hostname: payment-service
     prefer-ip-address: false
