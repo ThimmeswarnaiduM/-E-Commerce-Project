@@ -1,6 +1,6 @@
 spring:
   config:
-    import: optional:configserver:http://config-server:8888  # use service name, not underscore
+    import: optional:configserver:http://config_server:8888  # use service name, not underscore
   application:
     name: order-service
   profiles:
