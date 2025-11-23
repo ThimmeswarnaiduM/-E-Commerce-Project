@@ -1,9 +1,14 @@
-spring: 
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888  # use service name, not underscore
+  application:
+    name: order-service
+  profiles:
+    active: docker
   datasource:
-     url: jdbc:mysql://ms_mysql:3306/order_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://ms_mysql:3306/order_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: mysql
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,7 +22,6 @@ spring:
         spring.json.type.mapping:
           orderConfirmation: com.e_commerce_project.orderservice.Records.OrderConfirmation
 
-
 server:
   port: 8070
 
@@ -28,15 +32,15 @@ application:
 
 eureka:
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://eureka_server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/  # use service name from Docker Compose
     healthcheck:
       enabled: true
   instance:
     hostname: order-service
-    preferIpAddress: false
+    prefer-ip-address: false
     appname: order-service
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
