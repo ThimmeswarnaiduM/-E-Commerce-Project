@@ -5,12 +5,7 @@ spring:
     password: mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  config:
-    import: optional:configserver:http://config-server:8888
-
-  profiles:
-    active: docker
-
+  
   jpa:
     hibernate:
       ddl-auto: update
