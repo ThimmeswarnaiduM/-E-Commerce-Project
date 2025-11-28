@@ -9,17 +9,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
   kafka:
     bootstrap-servers: kafka:9092
-
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring.json.type.mapping: orderConfirmation:com.e_commerce_project.orderservice.Records.OrderConfirmation
-
-    consumer:
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer 
 
 server:
   port: 8070
