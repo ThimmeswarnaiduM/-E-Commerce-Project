@@ -1,0 +1,46 @@
+server:
+  port: 8040
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@mongo_db:27017/Notification?authSource=admin&authMechanism=SCRAM-SHA-1
+      database: Notification
+
+  mail:
+    host: mail-dev         # service name of maildev in docker-compose
+    port: 1025             # SMTP port exposed by maildev
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+        connectiontimeout: 5000
+        writetimeout: 5000
+        readtimeout: 5000
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.type.mapping: >
+          orderconfirmation:e_Commerce_project.Notification.Records.OderConfirmation,
+          paymentconfirmation:e_Commerce_project.Notification.Records.Paymentconfirmation
+        spring.json.trusted.packages: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: false
+    hostname: notification-service
