@@ -1,7 +1,8 @@
 spring:
     data:
     mongodb:
-      uri: mongodb://admin:admin@mongo_db:27017/customer?authSource=admin&authMechanism=SCRAM-SHA-1
+       uri: mongodb://localhost:27017/customer
+
   cloud:
     inetutils:
       preferred-networks:
@@ -52,3 +53,4 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
+
